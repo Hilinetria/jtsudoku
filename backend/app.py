@@ -1,3 +1,5 @@
+import aiohttp_cors
+
 from aiohttp import web
 from sudoku_generator import grid, sudoku_generator
 
@@ -21,4 +23,17 @@ async def on_get(request):
 app = web.Application()
 app.add_routes(routes)
 
-web.run_app(app)
+# Configure default CORS settings.
+cors = aiohttp_cors.setup(app, defaults={
+    "*": aiohttp_cors.ResourceOptions(
+            allow_credentials=True,
+            expose_headers="*",
+            allow_headers="*",
+        )
+})
+
+# Configure CORS on all routes.
+for route in list(app.router.routes()):
+    cors.add(route)
+
+web.run_app(app, port=8081)

@@ -17,11 +17,12 @@ export default {
 
 <style scoped>
   .field {
-    border: 1px;
+    background-color: #fff;
+    border: 1px solid #ededed;
     margin: 0 auto;
   }
   .cell {
-    padding: 5px 9px;
-    border: 1px solid black;
+    padding: 2px 9px;
+    border: 2px solid #ededed;
   }
 </style>

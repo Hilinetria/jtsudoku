@@ -1,4 +1,11 @@
+# IDE
 .idea
+.vscode
+
+# Venv
 venv/
+.venv/
+
+# Cache
+node_modules/
 __pycache__
-node_modules

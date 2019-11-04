@@ -1,4 +1,4 @@
-# frontend
+# Устрановка и запуск frontend'a
 
 ## Project setup
 ```
