@@ -41,7 +41,6 @@
         background-color: #00d1b1;
         border-radius: 5px;
     }
-
     .menu a {
         color: #fff;
     }

@@ -41,5 +41,8 @@
     }
     .menu-list:hover a {
         color: #000!important;
+    }
+    .menu-list a.is-active {
+        background: none!important;
     }    
 </style>
