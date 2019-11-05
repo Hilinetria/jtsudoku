@@ -2,14 +2,13 @@
   <section class="section">
     <div class="container">
         <div class="columns is-mobile">
-            <div class="menu column is-4 is-offset-4">
+            <div class="field column is-4 is-offset-4">
                 <p class="title">Sudoku</p>
-                <p class="subtitle"></p>
-                <b-menu>
-                    <b-menu-list>
-                        <router-link to="/single"><b-menu-item label="Одиночная игра"></b-menu-item></router-link>
-                    </b-menu-list>
-                </b-menu>
+                <ul class="menu">
+                    <li>
+                        <router-link to="/single">Одиночная игра</router-link>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -29,19 +28,47 @@
 </script>
 
 <style>
-    .menu {
-        background-color: #00d1b1;
+    .field {
+        width: 550px;
+        margin: 125px auto;
+        padding: 25px;
+        background-color: #43B3E9;
         border-radius: 5px;
     }
-    .menu .title {
+
+    .field .title {
+        color: #fff;
+        font-size: 24px;
+        padding: 24px 0;
+        text-align: center;
+    }
+
+    .menu {
+        list-style-type: none;
+        padding: 0;
+        margin: 0 15px;
+    }
+    
+    .menu li {
+        margin-bottom: 10px;
+    }
+
+    .menu li:hover {
+        background-color: #fff;
+        border-radius: 5px;
+    }
+    
+    .menu li a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
         color: #fff;
     }
-    .menu-list a {
-        color: #fff!important;
-    }
-    .menu-list:hover a {
-        color: #000!important;
-    }
+
+    .menu li:hover a {
+        color: #666;
+    }    
+    
     .menu-list a.is-active {
         background: none!important;
     }    

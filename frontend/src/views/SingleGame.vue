@@ -1,15 +1,22 @@
 <template>
-  <section class="section">
-    <div class="container">
-        <div class="columns is-mobile">
-            <div class="menu column is-4 is-offset-4">
-                <Field v-bind:generated="generated"></Field>
-                <router-link to="/"><b-button label="Назад в меню"></b-button></router-link>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-mobile">
+                <div class="field game-field column is-4 is-offset-4">
+                    <p class="title">Одиночная игра</p>
+
+                    <!-- Отображаем индикатор загрузки -->
+                    <LoadingSpin v-if="is_loading"></LoadingSpin>
+                    
+                    <!-- Отображаем игровое поле если все загрузилось -->
+                    <div v-else>
+                        <Field v-bind:field="field"></Field>
+                        <router-link to="/"><b-button label="Назад в меню"></b-button></router-link>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-  </section>
-    
+    </section>
 </template>
 
 <script>
@@ -17,31 +24,31 @@
     
     import {API_DOMAIN} from '../const'
     import Field from '../components/Field'
+    import LoadingSpin from '../components/LoadingSpin'
 
     export default {
         name: 'single',
         components: {
             Field,
+            LoadingSpin,
         },        
         data () {
             return {
-                generated: null
+                is_loading: true,
+                field: [],
             }
         },        
-        beforeRouteEnter(to, from, next) {
+        mounted() {
             axios.get(API_DOMAIN).then((response) => {
-                next(vm => (vm.generated = response.data.generated))
+                this.is_loading = false
+                this.field = response.data.generated
             });
         },
     }
 </script>
 
 <style scoped>
-    .menu {
-        background-color: #00d1b1;
-        border-radius: 5px;
-    }
-    .menu a {
-        color: #fff;
+    .game-field {
+        min-height: 350px;
     }
 </style>
