@@ -27,49 +27,38 @@
     }
 </script>
 
-<style>
-    .field {
+<style lang="sass">
+    .field
         width: 550px;
         margin: 125px auto;
         padding: 25px;
         background-color: #43B3E9;
         border-radius: 5px;
-    }
 
-    .field .title {
+    .field .title
         color: #fff;
         font-size: 24px;
         padding: 24px 0;
         text-align: center;
-    }
 
-    .menu {
+    .menu
         list-style-type: none;
         padding: 0;
         margin: 0 15px;
-    }
     
-    .menu li {
+    .menu li
         margin-bottom: 10px;
-    }
 
-    .menu li:hover {
+    .menu li:hover
         background-color: #fff;
         border-radius: 5px;
-    }
     
-    .menu li a {
+    .menu li a
         display: block;
         padding: 10px;
         text-decoration: none;
         color: #fff;
-    }
 
-    .menu li:hover a {
-        color: #666;
-    }    
-    
-    .menu-list a.is-active {
-        background: none!important;
-    }    
+    .menu li:hover a
+        color: #666;   
 </style>

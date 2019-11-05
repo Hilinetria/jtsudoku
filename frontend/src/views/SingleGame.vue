@@ -6,11 +6,11 @@
                     <p class="title">Одиночная игра</p>
 
                     <!-- Отображаем индикатор загрузки -->
-                    <LoadingSpin v-if="is_loading"></LoadingSpin>
+                    <loading_spin v-if="is_loading"></loading_spin>
                     
                     <!-- Отображаем игровое поле если все загрузилось -->
                     <div v-else>
-                        <Field v-bind:field="field"></Field>
+                        <field v-bind:data="data"></Field>
                         <router-link to="/"><b-button label="Назад в меню"></b-button></router-link>
                     </div>
                 </div>
@@ -23,32 +23,31 @@
     import axios from 'axios'
     
     import {API_DOMAIN} from '../const'
-    import Field from '../components/Field'
-    import LoadingSpin from '../components/LoadingSpin'
+    import field from '../components/Field'
+    import loading_spin from '../components/LoadingSpin'
 
     export default {
         name: 'single',
         components: {
-            Field,
-            LoadingSpin,
+            field,
+            loading_spin,
         },        
         data () {
             return {
                 is_loading: true,
-                field: [],
+                data: [],
             }
         },        
         mounted() {
             axios.get(API_DOMAIN).then((response) => {
                 this.is_loading = false
-                this.field = response.data.generated
+                this.data = response.data.generated
             });
         },
     }
 </script>
 
-<style scoped>
-    .game-field {
+<style scoped lang="sass">
+    .game-field
         min-height: 350px;
-    }
 </style>
